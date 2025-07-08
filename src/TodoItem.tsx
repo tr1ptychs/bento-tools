@@ -9,7 +9,7 @@ function TodoItem({ todo, checked, onToggle, onDelete }: TodoItemProps) {
   return (
     <>
       <div className="flex justify-between">
-        <div id="bingus">
+        <div>
           <input
             type="checkbox"
             className="size-4 mr-2"
@@ -18,12 +18,12 @@ function TodoItem({ todo, checked, onToggle, onDelete }: TodoItemProps) {
           />
           <div className="inline">{todo}</div>
         </div>
-        <div
+        <button
           className="inline text-xl ml-2 p-1 border-2 border-sky-200"
           onClick={onDelete}
         >
           Delete
-        </div>
+        </button>
       </div>
     </>
   );

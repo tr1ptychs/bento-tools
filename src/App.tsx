@@ -14,7 +14,7 @@ function App() {
           </a>
         </header>
         <main className="w-full mb-auto h-full bg-zinc-500">
-          <div className="w-9/12 m-auto h-full flex flex-wrap">
+          <div className="w-9/12 m-auto h-full gap-* flex flex-wrap">
             <Tool>
               <Stopwatch />
             </Tool>

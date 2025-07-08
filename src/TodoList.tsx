@@ -9,8 +9,12 @@ type Todo = {
 
 function TodoList() {
   const [todos, setTodos] = useState<Todo[]>(() => {
-    const saved = localStorage.getItem("todos");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem("todos");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
   const [newTodo, setNewTodo] = useState("");
 
@@ -26,6 +30,12 @@ function TodoList() {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      addTodo();
+    }
+  }
 
   function handleToggle(id: string) {
     setTodos((prev) =>
@@ -48,18 +58,14 @@ function TodoList() {
           className="p-2"
           placeholder="Add a new Task"
           onChange={(event) => setNewTodo(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              addTodo();
-            }
-          }}
+          onKeyDown={(event) => handleKeyDown(event)}
         ></input>
-        <div
+        <button
           className="text-center p-3 m-1 inline border-2 border-sky-200"
-          onClick={() => addTodo()}
+          onClick={addTodo}
         >
           Add
-        </div>
+        </button>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id} className="mt-3">
