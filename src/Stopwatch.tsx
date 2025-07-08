@@ -23,10 +23,9 @@ function Stopwatch() {
             className="text-center p-3 m-1 w-30 border-2 border-sky-200"
             onClick={() => {
               setIsRunning(false);
-              setStopwatch(0);
             }}
           >
-            Reset
+            Stop
           </div>
         ) : (
           <div
@@ -38,9 +37,12 @@ function Stopwatch() {
         )}
         <div
           className="text-center p-3 m-1 w-30 border-2 border-sky-200"
-          onClick={() => setIsRunning(false)}
+          onClick={() => {
+            setIsRunning(false);
+            setStopwatch(0);
+          }}
         >
-          Stop
+          Reset
         </div>
       </div>
     </>

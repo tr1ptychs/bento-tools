@@ -31,18 +31,18 @@ function Timer() {
               className="text-center p-3 m-1 w-30 border-2 border-sky-200"
               onClick={() => {
                 setIsRunning(false);
-                setTimer(0);
               }}
             >
-              Reset
+              Stop
             </div>
             <div
               className="text-center p-3 m-1 w-30 border-2 border-sky-200"
               onClick={() => {
                 setIsRunning(false);
+                setTimer(0);
               }}
             >
-              Stop
+              Reset
             </div>
           </>
         ) : (
