@@ -61,7 +61,7 @@ function Timer() {
             </div>
             <div
               className="text-center p-3 m-1 w-14 border-2 border-sky-200"
-              onClick={() => setTimer((prev) => prev - 1)}
+              onClick={() => setTimer((prev) => Math.max(prev - 1, 0))}
             >
               ↓
             </div>
