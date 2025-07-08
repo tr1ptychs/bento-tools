@@ -1,4 +1,7 @@
 import "./App.css";
+import Tool from "./Tool.tsx";
+import Stopwatch from "./Stopwatch.tsx";
+import Timer from "./Timer.tsx";
 
 function App() {
   return (
@@ -9,11 +12,14 @@ function App() {
             Bento Tools
           </a>
         </header>
-        <main className="w-full mb-auto bg-zinc-500">
-          <div className="w-9/12 m-auto flex">
-            <div className="text-white text-2xl p-4 border-2">
-              hello I am a tool :)
-            </div>
+        <main className="w-full mb-auto h-full bg-zinc-500">
+          <div className="w-9/12 m-auto h-full flex">
+            <Tool>
+              <Stopwatch />
+            </Tool>
+            <Tool>
+              <Timer />
+            </Tool>
           </div>
         </main>
         <footer className="text-white text-right p-5 w-full bg-zinc-700">
