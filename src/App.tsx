@@ -2,6 +2,7 @@ import "./App.css";
 import Tool from "./Tool.tsx";
 import Stopwatch from "./Stopwatch.tsx";
 import Timer from "./Timer.tsx";
+import TodoList from "./TodoList.tsx";
 
 function App() {
   return (
@@ -13,12 +14,15 @@ function App() {
           </a>
         </header>
         <main className="w-full mb-auto h-full bg-zinc-500">
-          <div className="w-9/12 m-auto h-full flex">
+          <div className="w-9/12 m-auto h-full gap-* flex flex-wrap">
             <Tool>
               <Stopwatch />
             </Tool>
             <Tool>
               <Timer />
+            </Tool>
+            <Tool>
+              <TodoList />
             </Tool>
           </div>
         </main>
