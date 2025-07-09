@@ -18,6 +18,10 @@ function TodoList() {
   });
   const [newTodo, setNewTodo] = useState("");
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const addTodo = () => {
     if (!newTodo.trim()) return;
     setTodos((prev) => [
@@ -26,10 +30,6 @@ function TodoList() {
     ]);
     setNewTodo("");
   };
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
