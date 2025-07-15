@@ -3,6 +3,7 @@ import Tool from "./Tool.tsx";
 import Stopwatch from "./Stopwatch.tsx";
 import Timer from "./Timer.tsx";
 import TodoList from "./TodoList.tsx";
+import UnitConverter from "./UnitConverter.tsx";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
             </Tool>
             <Tool>
               <TodoList />
+            </Tool>
+            <Tool>
+              <UnitConverter />
             </Tool>
           </div>
         </main>
