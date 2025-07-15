@@ -90,9 +90,14 @@ function UnitConverter() {
 
   useEffect(() => {
     const units = Object.keys(converterMap[category].units);
-    setFromUnit(units[0]);
-    setToUnit(units[1]);
-    setFromValue(1);
+    const initialFrom = units[0];
+    const initialTo = units[1];
+    const initialValue = 1;
+
+    setFromUnit(initialFrom);
+    setToUnit(initialTo);
+    setFromValue(initialValue);
+    setToValue(convert(category, initialValue, initialFrom, initialTo));
   }, [category]);
 
   useEffect(() => {
@@ -100,7 +105,9 @@ function UnitConverter() {
       const result = convert(category, fromValue, fromUnit, toUnit);
       setToValue(result);
     }
-  }, [category, fromUnit, toUnit, fromValue]);
+    // category is stable here because unit reset + conversion is handled on category change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromUnit, toUnit, fromValue]);
 
   return (
     <>
